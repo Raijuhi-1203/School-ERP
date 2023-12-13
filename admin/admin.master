@@ -1,0 +1,451 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="admin.master.cs" Inherits="home" %>
+
+<!DOCTYPE html>
+
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <title>School ERP</title>
+
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta charset="UTF-8" />
+
+    <meta name="company" content="TechnoIndiaz" />
+    <meta name="theme-color" content="#3374de" />
+    <link rel="shortcut icon" href="" title="Favicon" />
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css' />
+    <link href="assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet" />
+    <link href="assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+
+    <link href="assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/product-preview-slider/css/style.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link href="assets/css/Message.css" rel="stylesheet" type="text/css" />
+    <script src="assets/js/Message.js"></script>
+
+    <link href="assets/css/modern.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/custom.css" rel="stylesheet" type="text/css" />
+
+    <!-- summernote -->
+    <link rel="stylesheet" href="assets/summernote/summernote-bs4.css" />
+
+    <style>
+        hr {
+            border-top: 1px solid #083b3f;
+        }
+
+        .dt-buttons {
+            display: inline-block;
+            padding-top: 5px;
+            margin-bottom: 15px;
+            margin-left: 20px;
+        }
+
+            .dt-buttons .dt-button {
+                padding: 5px 15px;
+                border-radius: 4px;
+                background: #1976d2;
+                color: #ffffff;
+                margin-right: 3px;
+                text-decoration: none;
+            }
+    </style>
+
+    <link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+
+    <link rel="stylesheet" href="assets/select/css/bootstrap-select.min.css" />
+
+    <script src="assets/select/js/bootstrap-select.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('.selectpicker').selectpicker();
+        });
+
+        function pageLoad(sender, args) {
+            $(document).ready(function () {
+
+                $('.selectpicker').selectpicker();
+            });
+
+        }
+    </script>
+
+</head>
+<body class="page-header-fixed compact-menu page-horizontal-bar">
+
+    <form id="form1" runat="server">
+
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+        <div class="pace pace-active">
+            <div class="pace-progress" data-progress-text="100%" data-progress="100" style="transform: translate3d(100%, 0px, 0px);">
+                <div class="pace-progress-inner"></div>
+            </div>
+            <div class="pace-activity"></div>
+        </div>
+
+        <div class="overlay"></div>
+
+        <main class="page-content content-wrap">
+            <div class="navbar" style="background: #050a30 !important">
+                <div class="navbar-inner container">
+                    <div class="sidebar-pusher">
+                        <a href="javascript:void(0);" class="waves-effect waves-button waves-classic push-sidebar" style="color: white">
+                            <i class="fa fa-bars" style="color: white"></i>
+                        </a>
+                    </div>
+                    <div class="logo-box">
+                        <a href="dashboard.aspx" class="logo-text"><span style="color: white">Admin Panel</span></a>
+                    </div>
+
+                    <div class="topmenu-outer" style="background: #050a30 !important">
+                        <div class="top-menu">
+
+                            <ul class="nav navbar-nav navbar-right">
+
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="far fa-window-restore" aria-hidden="true"></i>&nbsp;
+                                    Enquiry</a>
+                                    <ul class="dropdown-menu dropdown-list" role="menu">
+                                        <li><a href="add-enquiry.aspx">Add Enquiry</a></li>
+                                        <li><a href="enquiry.aspx">Manage Enquiry</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;
+                                        Setting
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-list" role="menu">
+                                        <li><a href="manage-state.aspx">Manage State</a></li>
+                                        <li><a href="manage-city.aspx">Manage City</a></li>
+                                        <li><a href="manage-financial-year.aspx">Manage Financial year</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                                        <span class="user-name">
+                                            <asp:Label ID="username" runat="server" Text="Administrator"></asp:Label><i class="fa fa-angle-down"></i></span>
+                                        <img class="img-circle avatar" style="background-color: black" src="assets/upload/boy.png" id="pic" runat="server" width="40" height="40" alt="" />
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-list" role="menu">
+
+                                        <li role="presentation"><a href="logout.aspx"><i class="fas fa-sign-out-alt"></i>Log out</a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                            <!-- Nav -->
+                        </div>
+                        <!-- Top Menu -->
+                    </div>
+                </div>
+            </div>
+            <!-- Navbar -->
+            <div class="page-sidebar sidebar horizontal-bar">
+                <div class="page-sidebar-inner" id="navigationDIV" runat="server">
+                    <ul class="menu accordion-menu">
+                        <li class="nav-heading"><span>Navigation</span></li>
+
+                        <li class="droplink"><a href="#"><i class="fas fa-archive"></i>
+                            <p>&nbsp;Section</p>
+                            <span class="arrow"></span></a>
+                            <ul class="sub-menu">
+                                <li><a href="add-section.aspx">Add Section</a></li>
+                                <li><a href="manage-section.aspx">Manage Section</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="droplink"><a href="#"><i class="fas fa-table"></i>
+                            <p>&nbsp;Class</p>
+                            <span class="arrow"></span></a>
+                            <ul class="sub-menu">
+                                <li><a href="add-class.aspx">Add Class</a></li>
+                                <li><a href="manage-class.aspx">Manage Class</a></li>
+                            </ul>
+                        </li>
+
+
+
+                        <li class="droplink"><a href="#"><i class="fas fa-user-friends"></i>
+                            <p>&nbsp;Student</p>
+                            <span class="arrow"></span></a>
+                            <ul class="sub-menu">
+                                <li><a href="add-student.aspx">Add Student</a></li>
+                                <li><a href="manage-student.aspx">Manage Student</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="droplink"><a href="#"><i class="fas fa-user-circle"></i>
+                            <p>&nbsp;Employee</p>
+                            <span class="arrow"></span></a>
+                            <ul class="sub-menu">
+                                <li><a href="add-employee.aspx">Add Employee</a></li>
+                                <li><a href="manage-employee.aspx">Manage Employee</a></li>
+                            </ul>
+                        </li>
+
+
+
+                        <li class="droplink"><a href="#"><i class="fas fa-paste"></i>
+                            <p>&nbsp;Notice</p>
+                            <span class="arrow"></span></a>
+                            <ul class="sub-menu">
+                                <li><a href="add-notice.aspx">Add Notice</a></li>
+                                <li><a href="manage-notice.aspx">Manage Notice</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li class="droplink"><a href="#"><i class="fas fa-chart-pie"></i>
+                            <p>&nbsp;Class fee</p>
+                            <span class="arrow"></span></a>
+                            <ul class="sub-menu">
+                                <li><a href="add-class-fee.aspx">Add Class fee</a></li>
+                                <li><a href="manage-class-fee.aspx">Manage Class fee</a></li>
+
+                            </ul>
+                        </li>
+
+
+                        <li class="droplink"><a href="#"><i class="fas fa-clipboard"></i>
+                            <p>&nbsp;Exam</p>
+                            <span class="arrow"></span></a>
+                            <ul class="sub-menu">
+                                <li><a href="add-exam.aspx">Add Exam</a></li>
+                                <li><a href="manage-exam.aspx">Manage Exam</a></li>
+
+                            </ul>
+                        </li>
+
+
+                        <li class="droplink"><a href="#"><i class="fas fa-asterisk"></i>
+                            <p>&nbsp;Holiday</p>
+                            <span class="arrow"></span></a>
+                            <ul class="sub-menu">
+                                <li><a href="add-holiday.aspx">Add Holiday</a></li>
+                                <li><a href="manage-holiday.aspx">Manage Holiday</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li class="droplink"><a href="#"><i class="fas fa-calendar-alt"></i>
+                            <p>&nbsp;Time-Table</p>
+                            <span class="arrow"></span></a>
+                            <ul class="sub-menu">
+                                <li><a href="add-time-table.aspx">Add Time-Table</a></li>
+                                <li><a href="manage-time-table.aspx">Manage Time-Table</a></li>
+
+                            </ul>
+                        </li>
+
+
+                        <li class="droplink"><a href="#"><i class="fas fa-book"></i>
+                            <p>&nbsp;Subject</p>
+                            <span class="arrow"></span></a>
+                            <ul class="sub-menu">
+                                <li><a href="add-subject.aspx">Add Subject</a></li>
+                                <li><a href="manage-subject.aspx">Manage Subject</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li class="droplink"><a href="#"><i class="fas fa-medal"></i>
+                            <p>&nbsp;Exam Result</p>
+                            <span class="arrow"></span></a>
+                            <ul class="sub-menu">
+                                <li><a href="add-result.aspx">Add Result</a></li>
+                                <li><a href="manage-result.aspx">Manage Result</a></li>
+
+                            </ul>
+                        </li>
+
+
+                        <li class="droplink"><a href="#"><i class="fas fa-receipt"></i>
+                            <p>&nbsp;Attendance</p>
+                            <span class="arrow"></span></a>
+                            <ul class="sub-menu">
+                                <li><a href="add-attendance.aspx">Add Student Attendance</a></li>
+                                <li><a href="manage-attendance.aspx">Manage Attendance</a></li>
+                                <li><a href="add-emp-attendance.aspx">Add Employee Attendance</a></li>
+                                <li><a href="manage-emp-attendance.aspx">Manage Attendance</a></li>
+
+
+                            </ul>
+                        </li>
+
+
+
+                        <li class="droplink hidden-lg hidden-md"><a href="#">
+                            <img class="img-circle avatar" style="background-color: black" src="assets/upload/boy.png" id="Img1" runat="server" width="20" height="20" alt="" />
+
+                            <span class="arrow"></span></a>
+                            <ul class="sub-menu">
+
+                                <li role="presentation"><a href="bazaar-logout.aspx"><i class="fa fa-sign-out m-r-xs"></i>Log out</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <div class="page-inner">
+
+                <div id="main-wrapper" class="container">
+
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-2">
+                            <div>
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-footer" style="position: fixed; left: 0px; bottom: 0px; background: #000 !important">
+                    <div class="container">
+                        <center>
+                            <a href="#" style="text-decoration: none; color: white">
+                                <span>Authorised</span>  by <span style="color: #fff; font-weight: bold">TechnoIndiaz</span></a>
+                        </center>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        <!-- Page Content -->
+        <div class="cd-overlay"></div>
+    </form>
+
+    <!-- Summernote -->
+    <script src="assets/summernote/summernote-bs4.min.js"></script>
+    <script>
+        $('.textarea').summernote({
+            toolbar: [
+                // [groupName, [list of button]]
+
+                ['link', ['link']],
+
+                ['table', ['table']],
+                ['hr', ['hr']],
+
+                ['font', ['font']],
+                ['fontsize', ['fontsize']],
+                //['color', ['color']],
+
+                ['forecolor', ['forecolor']],
+                //['backcolor', ['backcolor']],
+                ['bold', ['bold']],
+                ['italic', ['italic']],
+                ['insert', ['link', 'picture', 'video']],
+                ['underline', ['underline']],
+                ['strikethrough', ['strikethrough']],
+                ['clear', ['clear']],
+                ['codeview', ['codeview']],
+                ['undo', ['undo']],
+                ['redo', ['redo']],
+
+                ['para', ['style', 'ul', 'ol', 'paragraph']],
+                ['height', ['height']]
+            ],
+
+            //callbacks: {
+            //    onPaste: function (e) {
+            //        var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('text/html');
+            //        e.preventDefault();
+            //        var div = $('<div />');
+            //        div.append(bufferText);
+            //        div.find('*').removeAttr('style');
+            //        setTimeout(function () {
+            //            document.execCommand('insertHtml', false, div.html());
+            //        }, 10);
+            //    }
+            //}
+        });
+
+        $('.table-class').DataTable({
+
+            dom: 'lBfrtip',
+            buttons: [
+                'excel', 'pdf',
+            ],
+            "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "sorting": false,
+        });
+
+    </script>
+
+    <script>
+
+
+        (function () {
+            var elements = document.querySelectorAll('img[data-src]');
+            var index = 0;
+            var lazyLoad = function () {
+                if (index >= elements.length) return;
+                var item = elements[index];
+                if ((this.scrollY + this.innerHeight) > item.offsetTop) {
+                    var src = item.getAttribute("data-src");
+                    item.src = src;
+                    item.addEventListener('load', function () {
+                        item.removeAttribute('data-src');
+                    });
+                    index++;
+                    lazyLoad();
+                }
+            };
+            var init = function () {
+                window.addEventListener('scroll', lazyLoad);
+                lazyLoad();
+            };
+            return init();
+        })();
+
+
+
+    </script>
+
+    <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="assets/plugins/pace-master/pace.min.js"></script>
+    <script src="assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+    <script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets/plugins/uniform/jquery.uniform.min.js"></script>
+    <script src="assets/plugins/classie/classie.js"></script>
+    <script src="assets/plugins/waves/waves.min.js"></script>
+    <script src="assets/js/modern.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+
+</body>
+</html>
